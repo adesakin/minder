@@ -25,7 +25,7 @@
       #panel2.content
         = render partial: 'tindex', locals: {tickets: @tickets.where(workflow_state: "open")}
       #panel3.content
-        = render partial: 'tindex', locals: {tickets: @tickets.where(workflow_state: "on_hold")}
+        = render partial: 'tindex', locals: {tickets: @tickets.where(workflow_state: "hold")}
       #panel4.content
         = render partial: 'tindex', locals: {tickets: @tickets.where(workflow_state: "closed")}
 

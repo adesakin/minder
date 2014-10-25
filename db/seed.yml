@@ -1,7 +1,4 @@
 statuses:
-  - name: Unassigned
-  - name: Assigned
-  - name: Open
   - name: Waiting for Staff Response
   - name: Waiting for Customer
   - name: On Hold

@@ -10,8 +10,12 @@
     .small-12.columns
       %b Subject:
       = @ticket.subject
- 
+
+    .small-12.columns
+      %b Status:
+      = @ticket.status 
   %br
+
   .row
     .small-12.large-4.medium-4.columns
       %b Customer name:

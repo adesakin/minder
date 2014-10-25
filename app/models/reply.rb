@@ -5,9 +5,6 @@ class Reply < ActiveRecord::Base
 
   def send_reply_mail
     UserMailer.customer_reply_mail(self).deliver
-    if user.nil?
-      ticket.update(status: "Waiting for Staff Response")
-    end
   end
 
 

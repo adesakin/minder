@@ -1,5 +1,6 @@
 class Ticket < ActiveRecord::Base
   before_create :set_reference
+  before_save :update_ticket_status
 
   has_many :replies, dependent: :destroy
   belongs_to :user
@@ -24,18 +25,28 @@ class Ticket < ActiveRecord::Base
 
     state :open do
       event :own_ticket, :transitions_to => :open
-      event :revert, :transitions_to => :new
-      event :submit, :transitions_to => :closed
+      event :open, :transitions_to => :open
+      event :hold, :transitions_to => :hold
+      event :closed, :transitions_to => :closed
     end
 
-    state :on_hold do
+    state :hold do
       event :open, :transitions_to => :open
+      event :hold, :transitions_to => :hold
+      event :closed, :transitions_to => :closed
     end
 
     state :closed
 
   end
 
+  def hold
+    status = "On Hold"
+  end
+
+  def closed
+    status = "Completed"
+  end
 
   def self.open_tickets
     where(workflow_state: 'open')
@@ -46,7 +57,7 @@ class Ticket < ActiveRecord::Base
   end
 
   def self.on_hold_tickets
-    where(workflow_state: 'on_hold')
+    where(workflow_state: 'hold')
   end
 
   def self.closed_tickets
@@ -75,7 +86,18 @@ class Ticket < ActiveRecord::Base
     "#{[*('A'..'Z')].sample(3).join}-#{SecureRandom.hex(1)}-#{[*('A'..'Z')].sample(3).join}-#{SecureRandom.hex(1)}-#{[*('A'..'Z')].sample(3).join}".upcase
   end
 
-
-
-
+  def update_ticket_status
+    if status_changed?
+      case status
+      when "On Hold"
+        self.hold!
+      when "Cancelled"
+        self.closed!
+      when "Completed"
+        self.closed!
+      else
+        self.open!
+      end
+    end
+  end
 end

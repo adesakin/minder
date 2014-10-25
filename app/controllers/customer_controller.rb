@@ -23,7 +23,8 @@ class CustomerController < ApplicationController
 
   def update
     @ticket = Ticket.find(params[:id])
-    @ticket.update(ticket_params)
+    @ticket.status = "Waiting for Staff Response"
+    @ticket.update(reply_params)
     respond_to do |format|
       format.html {redirect_to customer_ticket_path(id: @ticket.id), notice: 'Your ticket has been updated.'}
     end
@@ -34,6 +35,9 @@ class CustomerController < ApplicationController
   end
 
   private
+  def reply_params
+    params.require(:ticket).permit(replies_attributes: [:note])
+  end
 
   def ticket_params
     params.require(:ticket).permit(:customer_name, :customer_email, :department, :subject, :body, :status, \

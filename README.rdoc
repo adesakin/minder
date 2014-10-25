@@ -6,4 +6,7 @@ Customers can create tickets without logging in.
 
 Staff can access update the tickets after logging in.
 
-Initialize the system by rake db:seed
+Initialize the system, after setting up your database, by running 
+
+i. rake db:migrate
+ii. rake db:seed
