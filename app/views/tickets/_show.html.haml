@@ -1,0 +1,52 @@
+.small-12.columns
+
+  %p#notice= notice
+
+  .row
+    .small-12.columns
+      %b Reference ID:
+      = @ticket.ref
+
+    .small-12.columns
+      %b Subject:
+      = @ticket.subject
+ 
+  %br
+  .row
+    .small-12.large-4.medium-4.columns
+      %b Customer name:
+      %br= @ticket.customer_name      
+
+    .small-12.large-4.medium-4.columns.end
+      %b Customer email:
+      %br= @ticket.customer_email
+
+  %br
+  .row
+    .small-12.large-4.medium-4.columns
+      %b Department:
+      %br= @ticket.department
+
+  %br
+  .row
+    .small-12.columns
+      %b Ticket Details
+      %br= simple_format @ticket.body
+
+  %b Ticket History
+  - @ticket.replies.each do |reply|
+    %br
+
+    .row
+      .small-12.columns
+        = simple_format reply.note
+        = reply.updated_at
+
+  %br
+  %hr
+
+
+
+
+
+

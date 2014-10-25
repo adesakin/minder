@@ -1,0 +1,5 @@
+= link_to 'Return to Manage Tickets', tickets_path, class: 'color complement'
+= render '/tickets/show'
+
+- if @ticket.user == current_user
+  = render '/tickets/reply'

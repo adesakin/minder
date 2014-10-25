@@ -1,0 +1,17 @@
+.large-4.medium-4.columns
+  = link_to tickets_manage_path do
+    %h2{style: "color: teal;"}
+      Minder
+.large-8.medium-8.columns
+  %ul.sub-nav
+    - unless current_user.nil?
+      .left
+        %li
+          %b= link_to 'Tickets', tickets_manage_path
+        %li
+          %b= link_to 'Admin', '#'
+      .right
+        %li= link_to current_user.email, '#'
+        %li.divider
+        %li= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "alice-color"
+

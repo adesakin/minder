@@ -1,0 +1,14 @@
+- unless tickets.nil?
+  %ul#tickets.table
+    .table-row.table-header-group
+      %li Reference
+      %li Customer email
+      %li Subject
+      %li Status
+      %li Owner
+      %li Action
+
+
+    = render partial: "ticket", collection: tickets
+
+%br

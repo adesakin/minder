@@ -1,0 +1,9 @@
+= simple_form_for @ticket, url: customer_ticket_update_url(@ticket),  html: { novalidate: false } do |f|
+
+  .large-6.medium-9.small-12.columns
+    = f.simple_fields_for :replies, @ticket.replies.build do |reply_form|
+      = reply_form.input :note, label: 'Work Note', as: :text, placeholder: 'Fill in Ticket Note'
+
+      = f.button :submit, "Update Ticket", class: "button btn"
+
+

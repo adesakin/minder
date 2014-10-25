@@ -1,0 +1,164 @@
+* {
+  margin:0;
+  padding:0;
+  font-size:14px;
+} 
+
+#header{
+  height: 90px;
+}
+
+html, body {
+  height: 100%;
+  background: #efefef;
+  font-family:  Roboto, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.sub-nav {
+  margin: 1rem 0 1.125rem;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #000;
+  }
+  &.btn:visited{
+    color: whitesmoke;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+
+  &.color.complement {
+    color: #Bf6060;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+
+.label{
+  font-family: Roboto, Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 18px;
+  font-weight: 500;
+  padding: 0.375rem 0.5rem 0.375rem;
+  background-color: #004466;
+  margin-bottom: 0.5rem;
+}
+
+ul.table, div.table{
+  display: table;
+  margin-left: 0;
+  width: 100%;
+  .table-row {
+    display: table-row;
+    [class^="icon-"], [class*=" icon-"]{
+      color: teal;
+    }
+
+    &.even{
+      background-color: aliceblue;
+    }
+
+    li, .table-cell {
+      display: table-cell;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+    &.table-header-group{
+      background-color: #4682b4;
+      color: floralwhite;
+      display: table-header-group;
+      & li{
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.btn, button.btn {
+    font-family: Roboto, Montserrat, Helvetica, Arial, sans-serif;
+    background-color: #004466;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border: none;
+    color: #fff; 
+    font-size: 14px;
+    font-weight: bold;
+
+    .table & {
+      margin-bottom: 0;
+
+      &.reduced{
+        font-size: 0.85rem;
+        padding-top: 2px;
+        padding-bottom: 2px;
+      }
+    }
+
+    &.postfix {
+      height: inherit;
+      line-height: inherit;
+    }
+
+    &.action-btn{
+      text-shadow:1px 1px 1px rgba(0,0,0, 0.8);
+      background-color: #ED7804;
+      -webkit-box-shadow: inset 0px 0px 5px 0px rgba(196,98,1,1);
+      -moz-box-shadow: inset 0px 0px 5px 0px rgba(196,98,1,1);
+      box-shadow: inset 0px 0px 5px 0px rgba(196,98,1,1);
+      
+      &:hover{
+        background-color: steelblue;
+      }
+    }
+}

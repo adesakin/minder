@@ -1,0 +1,16 @@
+statuses:
+  - name: Unassigned
+  - name: Assigned
+  - name: Open
+  - name: Waiting for Staff Response
+  - name: Waiting for Customer
+  - name: On Hold
+  - name: Cancelled
+  - name: Completed
+
+
+departments:
+  - name: Billing
+  - name: Customer Service
+  - name: Field Support
+  - name: Technical Support

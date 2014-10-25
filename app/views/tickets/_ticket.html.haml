@@ -1,0 +1,10 @@
+.table-row{:class => "#{cycle('odd','even')}" }
+  %li{class: "ticket_id #{ticket.id}"}
+    = link_to ticket.ref, ticket_path(ticket)
+  %li= ticket.customer_email
+  %li= ticket.subject
+  %li= ticket.status
+  %li= ticket.user.nil? ? "-- NA --" : ticket.user.email
+  %li
+    - if ticket.workflow_state == 'new'
+      = link_to 'Take', control_ticket_path(ticket), class: "btn button reduced radius", method: :post

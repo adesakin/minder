@@ -1,0 +1,19 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "Minder - Support Issue Tracking"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/modernizr"
+    %link{:href => "http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,400italic", :rel => "stylesheet", :type => "text/css"}/
+    = csrf_meta_tags
+  %body
+    #header
+      .row
+
+    #content
+      .row
+        #container.small-12.columns
+          = yield
+    = javascript_include_tag "application"

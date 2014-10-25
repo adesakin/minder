@@ -1,0 +1,34 @@
+
+.row
+  = render 'search_form'
+
+.row
+  .small-12.columns
+    %h4 Customer Tickets
+
+    %dl.tabs{"data-tab" => ""}
+      %dd.active
+        %a{:href => "#all"} All Tickets
+      %dd
+        %a{:href => "#panel1"} New Unassigned Tickets
+      %dd
+        %a{:href => "#panel2"} Open Tickets
+      %dd
+        %a{:href => "#panel3"} On Hold Tickets
+      %dd
+        %a{:href => "#panel4"} Closed Tickets
+    .tabs-content
+      #all.content.active
+        = render 'index'
+      #panel1.content
+        = render partial: 'tindex', locals: {tickets: @tickets.where(workflow_state: "new")}
+      #panel2.content
+        = render partial: 'tindex', locals: {tickets: @tickets.where(workflow_state: "open")}
+      #panel3.content
+        = render partial: 'tindex', locals: {tickets: @tickets.where(workflow_state: "on_hold")}
+      #panel4.content
+        = render partial: 'tindex', locals: {tickets: @tickets.where(workflow_state: "closed")}
+
+
+
+    
