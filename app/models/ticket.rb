@@ -23,6 +23,7 @@ class Ticket < ActiveRecord::Base
     end
 
     state :open do
+      event :own_ticket, :transitions_to => :open
       event :revert, :transitions_to => :new
       event :submit, :transitions_to => :closed
     end
