@@ -30,11 +30,10 @@ class Ticket < ActiveRecord::Base
 
   workflow do
     state :new do
-      event :own_ticket, :transitions_to => :open
+      event :open, :transitions_to => :open
     end
 
     state :open do
-      event :own_ticket, :transitions_to => :open
       event :open, :transitions_to => :open
       event :hold, :transitions_to => :hold
       event :closed, :transitions_to => :closed

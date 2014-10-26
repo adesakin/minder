@@ -58,7 +58,7 @@ class TicketsController < ApplicationController
 
   def control
     current_user.tickets << @ticket
-    @ticket.own_ticket!
+    @ticket.open!
     respond_to do |format|
       format.html {render action: 'show', notice: "You are now own this ticket"}
     end
