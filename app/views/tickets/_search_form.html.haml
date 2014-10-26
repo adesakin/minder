@@ -2,15 +2,9 @@
   .row
     .large-6.medium-6.small-12.columns.search_job
       .small-6.columns
-        = select_tag :filter, options_from_collection_for_select(Status.all, "name", "name"), prompt: "Filter Tickets"
+        = text_field_tag :query, params[:query],  placeholder: 'Fill in Ticket ID, Subject or Other Parameters'
       .small-6.columns
-        = text_field_tag :query, params[:query],  placeholder: '(Optional) Fill in Ticket ID'
+        = submit_tag "Search", name: nil, class: "btn button label"
     .large-6.medium-6.small-12.columns.search_job
-      = submit_tag "Search", name: nil, class: "btn button label"
+      
 
-      &nbsp;
-      = link_to "#", remote: true, class: "advanced-search" do
-        %span{style: "font-weight: bold"}
-          %i.fi-plus.plus-minus.advanced
-          %i.fi-minus.plus-minus.advanced.hide
-          %span Advanced Search

@@ -9,6 +9,16 @@ class Ticket < ActiveRecord::Base
   validates_email_format_of :customer_email, :message => 'Your Email Address is not compliant with RFC standards'
 
 
+
+  scope :search, ->(q) {
+    unless q.nil?
+      val = '%' + q.downcase + '%'
+      where('LOWER(subject) LIKE ? OR LOWER(body) LIKE ? OR LOWER(ref) LIKE ?',
+          val, val, val)
+    end
+  }
+
+
   searchable do
     text :ref, :subject
     text :replies do

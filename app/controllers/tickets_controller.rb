@@ -45,9 +45,12 @@ class TicketsController < ApplicationController
   end
 
   def search
-    filter = params[:filter]
-    query = params[:query]
-    @tickets = Ticket.where('status = ?',  filter)
+    if !params[:query].empty?
+      @tickets = Ticket.search(params[:query])
+    else
+      @tickets = Ticket.all
+    end
+
     respond_to do |format|
       format.html {render action: 'manage'}
     end
