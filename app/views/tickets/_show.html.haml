@@ -14,8 +14,17 @@
     .small-12.columns
       %b Status:
       = @ticket.status 
-  %br
 
+
+  - if (!current_user.nil? && @ticket.user != current_user)
+    %br
+    .row
+      .small-12.columns
+        = link_to 'Take', control_ticket_path(@ticket), class: "btn button reduced radius", method: :post
+
+
+
+  %br
   .row
     .small-12.large-4.medium-4.columns
       %b Customer name:
