@@ -1,5 +1,5 @@
 class Ticket < ActiveRecord::Base
-  before_create :set_reference
+  after_create :set_reference
   before_save :update_ticket_status
 
   has_many :replies, dependent: :destroy
@@ -18,13 +18,6 @@ class Ticket < ActiveRecord::Base
     end
   }
 
-
-  searchable do
-    text :ref, :subject
-    text :replies do
-      replies.map { |reply| reply.note }
-    end
-  end
 
   include Workflow
 
@@ -105,7 +98,7 @@ class Ticket < ActiveRecord::Base
       when "Completed"
         self.closed!
       else
-        self.open!
+        self.open! unless new_record?
       end
     end
   end

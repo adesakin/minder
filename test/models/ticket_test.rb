@@ -9,10 +9,11 @@ class TicketTest < ActiveSupport::TestCase
   test "set reference" do
     ticket = tickets(:one)
     ticket.save
-    assert_match "Unassigned", ticket.status
-    
+    assert_match "Unassigned", ticket.status 
     ref_reg = /^[A-Z]{3}-\h\h-[A-Z]{3}-\h\h-[A-Z]{3}$/i
     refute_nil ref_reg.match(ticket.ref)
   end
 
 end
+
+

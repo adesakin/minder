@@ -8,21 +8,7 @@ class TicketsControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:tickets)
-  end
-
-  test "should not get new" do
-    get :new
-    refute_response :success
-  end
-
-  test "should not create ticket" do
-    refute_difference('Ticket.count') do
-      post :create, ticket: { body: @ticket.body, customer_email: @ticket.customer_email, customer_name: @ticket.customer_name, department_id: @ticket.department_id, subject: @ticket.subject }
-    end
-
-    assert_redirected_to ticket_path(assigns(:ticket))
+    assert_redirected_to tickets_manage_path
   end
 
   test "should show ticket" do
@@ -30,13 +16,8 @@ class TicketsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @ticket
-    assert_response :success
-  end
-
   test "should update ticket" do
-    patch :update, id: @ticket, ticket: { body: @ticket.body, customer_email: @ticket.customer_email, customer_name: @ticket.customer_name, department_id: @ticket.department_id, subject: @ticket.subject }
+    patch :update, id: @ticket, ticket: { body: @ticket.body, customer_email: @ticket.customer_email, customer_name: @ticket.customer_name, department: @ticket.department, subject: @ticket.subject }
     assert_redirected_to ticket_path(assigns(:ticket))
   end
 

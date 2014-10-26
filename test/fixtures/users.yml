@@ -6,8 +6,8 @@
 #
 one:
   email: one@email.com
-# column: value
+  encrypted_password: $2a$10$s5UmdDW8Z8RWp3H6Zhpkl.Jo3VF1/9PDV4vbbDQG101DKcBDezqdK
 #
 two:
   email: two@email.com
-#  column: value
+  encrypted_password: $2a$10$s5UmdDW8Z8RWp3H6Zhpkl.Jo3VF1/9PDV4vbbDQG101DKcBDezqdK

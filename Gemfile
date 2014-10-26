@@ -17,8 +17,6 @@ gem 'puma'
 gem 'quiet_assets'
 gem 'cocoon'
 gem 'faker', '~> 1.4.1'
-gem 'sunspot_rails'
-gem 'sunspot_solr'
 gem 'validates_email_format_of'
 
 # Use sqlite3 as the database for Active Record

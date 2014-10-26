@@ -12,15 +12,14 @@ class CustomerControllerTest < ActionController::TestCase
 
   test "should create ticket" do
     assert_difference('Ticket.count') do
-      post :create, ticket: { body: @ticket.body, customer_email: @ticket.customer_email, customer_name: @ticket.customer_name, department_id: @ticket.department_id, subject: @ticket.subject }
+      post :create, ticket: { body: @ticket.body, customer_email: @ticket.customer_email, customer_name: @ticket.customer_name, department: @ticket.department, subject: @ticket.subject }
     end
     assert_redirected_to customer_ticket_path(assigns(:ticket))
   end
 
-
-  test "should get update" do
-    get :update
-    assert_response :success
+  test "should update ticket" do
+    patch :update, id: @ticket, ticket: { status: @ticket.status, user: users(:two), replies_attibutes: [replies(:one)]}
+    assert_redirected_to customer_ticket_path(assigns(:ticket))
   end
 
 end

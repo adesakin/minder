@@ -10,7 +10,7 @@ class CustomerTest < ActionDispatch::IntegrationTest
     email = Faker::Internet.email
     fill_in "Customer Email", with: email
     #select('sample', from: "Department")
-    subject = Faker::Lorem::sentence
+    subject = Faker::Lorem::sentence.slice(0..39)
     fill_in "Subject", with: subject
     fill_in "Issue Details", with: Faker::Lorem::paragraph(2)
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do

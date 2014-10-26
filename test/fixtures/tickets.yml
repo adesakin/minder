@@ -3,7 +3,7 @@
 one:
   customer_name: Customer One
   customer_email: customer1@test.com
-  department_id: 1
+  department: Technical Support
   subject: Customer Mail One
   body: MyText
   status: Unassigned
@@ -11,7 +11,7 @@ one:
 two:
   customer_name: Customer Two
   customer_email: customer2@test.com
-  department_id: 1
+  department: Technical Support
   subject: Customer Mail Two
   body: MyText
   status: Assigned
@@ -19,7 +19,7 @@ two:
 mail_ticket:
   customer_name: Customer Mailer
   customer_email: customerm@test.com
-  department_id: 1
+  department: Technical Support
   subject: Customer Mailer Ticket
   body: MyText
   ref: ABC-A1-DEF-B2-GHI
@@ -28,7 +28,7 @@ mail_ticket:
 ticket_unassigned:
   customer_name: Customer Mailer
   customer_email: customer@test.com
-  department_id: 1
+  department: Technical Support
   subject: Customer Mailer Ticket
   body: MyText
   ref: ABC-A1-DEF-B2-GHI
@@ -37,7 +37,7 @@ ticket_unassigned:
 mail_unassigned_2:
   customer_name: Customer Mailer
   customer_email: customerm@test.com
-  department_id: 1
+  department: Technical Support
   subject: Customer Mailer Ticket
   body: MyText
   ref: ABC-A1-DEF-B2-GHI
@@ -46,7 +46,7 @@ mail_unassigned_2:
 mail_open:
   customer_name: Customer Mailer
   customer_email: customerm@test.com
-  department_id: 1
+  department: Technical Support
   subject: Customer Mailer Ticket
   body: MyText
   ref: ABC-A1-DEF-B2-GHI
@@ -55,7 +55,7 @@ mail_open:
 mail_open_2:
   customer_name: Customer Mailer
   customer_email: customerm@test.com
-  department_id: 1
+  department: Technical Support
   subject: Customer Mailer Ticket
   body: MyText
   ref: ABC-A1-DEF-B2-GHI
