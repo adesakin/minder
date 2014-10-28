@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :replies
   has_many :tickets
+
+  def self.formatted_all_records
+    User.all.map {|t| [t.email, t.email]}
+  end
 end

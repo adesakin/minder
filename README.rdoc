@@ -2,11 +2,11 @@
 
 This is a basic helpdesk application. 
 
-Customers can create tickets without logging in.
-
-Staff can access update the tickets after logging in.
+Customers can create tickets without logging in. Staff can access and update tickets after logging in.
 
 Initialize the system, after setting up your database, by running 
 
-i. rake db:migrate
-ii. rake db:seed
+   i. rake db:migrate
+  ii. rake db:seed
+
+It may be extended further as needed.

@@ -43,6 +43,15 @@ a {
   }
 }
 
+p {
+  margin-bottom: 0.2rem;
+}
+
+
+.time{
+  color: #D2691E;
+}
+
 div {
   &.field, &.actions {
     margin-bottom: 10px;

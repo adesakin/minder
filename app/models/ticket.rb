@@ -12,9 +12,7 @@ class Ticket < ActiveRecord::Base
 
   scope :search, ->(q) {
     unless q.nil?
-      val = '%' + q.downcase + '%'
-      where('LOWER(subject) LIKE ? OR LOWER(body) LIKE ? OR LOWER(ref) LIKE ?',
-          val, val, val)
+      where('ref like ? or lower(subject) like ? or lower(body) like ?', "%#{q.downcase}%", "%#{q.downcase}%", "%#{q.downcase}%")
     end
   }
 
@@ -67,21 +65,17 @@ class Ticket < ActiveRecord::Base
   end
 
 
-
   private
 
   def set_reference
     status = "Unassigned" if status.nil?  #Only used for testing but reverted
-    if ref.nil?
-      t = "0"
-      until (t.nil?)
-        u = unique_id
-        t = self.class.where(ref: unique_id).take
-      end
-      self.ref = u
-    else
-      ref
+
+    t = "0"
+    until (t.nil?)
+      u = unique_id
+      t = self.class.where(ref: unique_id).take
     end
+    update(ref: u)
   end
 
   def unique_id

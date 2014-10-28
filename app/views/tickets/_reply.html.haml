@@ -3,8 +3,8 @@
 
     .large-6.medium-9.small-12.columns
       .row
-        = f.input :status, collection: Status.all.map {|t| [t.name, t.name]}, wrapper_html: {class: "large-6 medium-6 small-12 columns"}
-        = f.input :user, label: 'Re-assign Ownership', collection: User.all.map {|t| [t.email, t.email]}, wrapper_html: {class: "large-6 medium-6 small-12 columns end"}
+        = f.input :status, collection: Status.formatted_all_records, wrapper_html: {class: "large-6 medium-6 small-12 columns"}
+        = f.input :user, label: 'Re-assign Ownership', collection: User.formatted_all_records, wrapper_html: {class: "large-6 medium-6 small-12 columns end"}
 
       
       = f.simple_fields_for :replies, @ticket.replies.build do |reply_form|

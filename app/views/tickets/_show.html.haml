@@ -20,7 +20,7 @@
     %br
     .row
       .small-12.columns
-        = link_to 'Take', control_ticket_path(@ticket), class: "btn button reduced radius", method: :post
+        = take_button(@ticket)
 
 
 
@@ -47,13 +47,15 @@
       %br= simple_format @ticket.body
 
   %b Ticket History
+
   - @ticket.replies.each do |reply|
     %br
 
     .row
       .small-12.columns
         = simple_format reply.note
-        = reply.updated_at
+        .time
+          = reply.updated_at
 
   %br
   %hr

@@ -19,7 +19,7 @@ module Minder
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.action_mailer.default_url_options = { host: 'host-tastic.com' }
+    config.action_mailer.default_url_options = { host: 'mysite.com' }
     config.assets.configure do |env|
       if Rails.env.development? || Rails.env.test?
         env.cache = ActiveSupport::Cache.lookup_store(:memory_store)

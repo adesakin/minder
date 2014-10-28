@@ -6,5 +6,4 @@
   %li= ticket.status
   %li= ticket.user.nil? ? "-- NA --" : ticket.user.email
   %li
-    - if ticket.workflow_state == 'new'
-      = link_to 'Take', control_ticket_path(ticket), class: "btn button reduced radius", method: :post
+    = take_button(ticket)
