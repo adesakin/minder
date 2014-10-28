@@ -41,14 +41,14 @@ class TicketsController < ApplicationController
   end
 
   def manage
-    @tickets = Ticket.all
+    @tickets = Ticket.all.page params[:page]
   end
 
   def search
     if !params[:query].empty?
-      @tickets = Ticket.search(params[:query])
+      @tickets = Ticket.search(params[:query]).page params[:page]
     else
-      @tickets = Ticket.all
+      @tickets = Ticket.all.page params[:page]
     end
 
     respond_to do |format|

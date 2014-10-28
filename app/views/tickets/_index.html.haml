@@ -1,4 +1,5 @@
 - unless @tickets.nil?
+  = paginate @tickets
   %ul#tickets.table
     .table-row.table-header-group
       %li Reference
@@ -10,5 +11,8 @@
 
 
     = render partial: "ticket", collection: @tickets
+
+  %hr
+  = paginate @tickets
 
 %br
